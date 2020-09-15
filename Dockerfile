@@ -1,6 +1,6 @@
-FROM alpine:3.11
+ARG ARGOCD_VERSION=v1.7.4
 
-RUN apk add --no-cache curl jq
+FROM argoproj/argocd:${ARGOCD_VERSION}
 
 COPY entrypoint.sh /entrypoint.sh
 
