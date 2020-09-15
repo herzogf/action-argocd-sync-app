@@ -10,14 +10,16 @@ inputs:
   app:
     description: ArgoCD App Name
     required: true
-outputs:
-  env_url:
-    description: App Environment URL
+  wait_timeout:
+    description: Time in seconds to wait for app to become healthy
+    required: true
+    default: '180'
 runs:
   using: docker
   image: Dockerfile
   env:
     ARGOCD_SERVER: ${{ inputs.server }}
     ARGOCD_AUTH_TOKEN: ${{ inputs.auth_token }}
+    ARGOCD_WAIT_TIMEOUT: ${{ inputs.wait_timeout }}
   args:
     - ${{ inputs.app }}
