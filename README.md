@@ -16,8 +16,6 @@ Sync an app on ArgoCD.
 
 **Required** ArgoCD App Name
 
-## Outputs
+### `wait_timeout`
 
-### `env_url`
-
-App Environment URL
+Time in seconds to wait for app to become healthy, default: 180 seconds
